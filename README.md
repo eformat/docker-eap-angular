@@ -20,10 +20,10 @@ This Docker file is based around EAP 6.4 although EAP 7 has been tested and work
 
 2. You also need to add RHN_USER and RHN_PASSWORD ARGs to the Dockerfile so that the RHEL7 image can subscribe to subscription manager
 
-Build and Deploy hola locally
+Build and Deploy locally
 -----------------------------
 
-1. Open a command prompt and navigate to the this locally cloned github repo: 
+1. Open a command prompt and navigate to the this locally cloned github repo.
 2. Type this command to build the docker image: 
         docker build -t=johnfosborneiii/rhel7-eap-angular . 
  
