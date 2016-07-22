@@ -18,6 +18,8 @@ http://developers.redhat.com/products/eap/download/
 
 This Docker file is based around EAP 6.4 although EAP 7 has been tested and works well. To use EAP 7 just update the ARG parameters in the Dockefile or pass the build-arguments for your instance
 
+2. You also need to add RHN_USER and RHN_PASSWORD ARGs to the Dockerfile so that the RHEL7 image can subscribe to subscription manager
+
 Build and Deploy hola locally
 -----------------------------
 

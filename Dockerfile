@@ -18,8 +18,8 @@ MAINTAINER John Osborne "josborne@redhat.com"
 
 ARG EAP_VERSION=6.4.0
 ARG JBOSS_HOME=jboss-eap-6.4
-ARG RHN_USER=josborne@redhat.com
-ARG RHN_PASSWORD=Clemson1982
+ARG RHN_USER yourusernamehere 
+ARG RHN_PASSWORD yourpasswordhere
 ARG WORKDIR=/home/jboss
 
 RUN subscription-manager register --username ${RHN_USER} --password ${RHN_PASSWORD} --auto-attach && \
