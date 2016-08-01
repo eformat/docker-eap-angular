@@ -18,13 +18,20 @@ MAINTAINER John Osborne "josborne@redhat.com"
 
 ARG EAP_VERSION=6.4.0
 ARG JBOSS_HOME=jboss-eap-6.4
-ARG RHN_USER yourusernamehere 
-ARG RHN_PASSWORD yourpasswordhere
+#ARG RHN_USER yourusernamehere 
+#ARG RHN_PASSWORD yourpasswordhere
 ARG WORKDIR=/home/jboss
 
-RUN subscription-manager register --username ${RHN_USER} --password ${RHN_PASSWORD} --auto-attach && \
-	subscription-manager repos --enable rhel-server-rhscl-7-rpms
+#RUN subscription-manager register --username ${RHN_USER} --password ${RHN_PASSWORD} --auto-attach && \
+#	subscription-manager repos --enable rhel-server-rhscl-7-rpms
 
+RUN yum --disablerepo=* repolist && \
+    yum-config-manager --disable \* &> /dev/null && \
+    yum-config-manager --enable rhel-6-server-rpms \
+                       --enable jb-eap-6-for-rhel-6-server-rpms \
+                       --enable rhel-6-server-rhevm-3.6-rpms \
+                       --enable rhel-6-server-supplementary-rpms \
+                         &> /dev/null
 RUN yum -y install java-1.8.0-openjdk-devel wget unzip \
   	yum -y update \
     yum clean all
