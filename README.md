@@ -18,7 +18,7 @@ http://developers.redhat.com/products/eap/download/
 
 This Docker file is based around EAP 6.4 although EAP 7 has been tested and works well. To use EAP 7 just update the ARG parameters in the Dockefile or pass the build-arguments for your instance
 
-2. You also need to add RHN_USER and RHN_PASSWORD ARGs to the Dockerfile so that the RHEL7 image can subscribe to subscription manager
+2. Red Hat Enterprise Linux (RHEL) requires a subscription. However, when building container, Red Hat Subscription Manager will defer to the host for the subscription. Building this Docker container requires it to be built on a subscribed RHEL Host. You can also defer to the host for the repositories, however I enabled them in the dockerfile with yum-config-manager
 
 Build and Deploy locally
 -----------------------------
