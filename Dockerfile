@@ -27,8 +27,8 @@ ARG WORKDIR=/home/jboss
 
 RUN yum -y install yum-utils
 RUN yum install yum-utils -y && yum clean all
-RUN yum-config-manager --enable rhel-6-server-rpms rhel-server-rhscl-7-rpms rhel-6-server-supplementary-rpms &> /dev/null
-RUN yum repolist
+#RUN yum-config-manager --enable rhel-6-server-rpms rhel-server-rhscl-7-rpms rhel-6-server-supplementary-rpms &> /dev/null
+#RUN yum repolist
 #RUN yum --disablerepo=* repolist && \
 #    yum-config-manager --disable \* &> /dev/null && \
 #    yum-config-manager --enable rhel-6-server-rpms \
@@ -36,6 +36,9 @@ RUN yum repolist
 #                       --enable rhel-6-server-rhevm-3.6-rpms \
 #                       --enable rhel-6-server-supplementary-rpms
 #                         &> /dev/null
+RUN yum repolist --disablerepo=* && \
+    yum-config-manager --disable \* && \
+    yum-config-manager --enable rhel-7-server-rpms
 
 RUN yum -y install java-1.8.0-openjdk-devel wget unzip \
   	yum -y update \
